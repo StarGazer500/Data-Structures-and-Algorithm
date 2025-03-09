@@ -3,6 +3,8 @@ import(
     "sync"
 )
 
+
+
 type Ordered interface {
     ~float64 | ~int | ~string
 }
