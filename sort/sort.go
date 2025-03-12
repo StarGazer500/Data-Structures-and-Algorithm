@@ -1,6 +1,7 @@
 package sort
 import(
     "sync"
+    "gitub.com/StarGazer500/Data-Structures-and-Algorithm/nonlinearadt/trees/binarytrees/heap"
 )
 
 
@@ -191,3 +192,28 @@ func ConcurrentQuicksort[T Ordered](data[] T, wg *sync.WaitGroup) {
         }
         return nil
     }
+
+
+ 
+    func HeapSort[T Ordered](input []T) []T {
+        heap1 := heap.NewHeap[T](input)
+        descending := []T{}
+        for {
+            if len(heap1.Items) > 0 {
+                descending = append(descending, heap1.Largest())
+                heap1.Remove()
+                } else {
+                    break
+                }
+            }
+            ascending := []T{}
+            for i := len(descending) - 1; i >= 0; i-- {
+                ascending = append(ascending, descending[i])
+            }
+            return ascending
+        }
+
+
+        
+
+        

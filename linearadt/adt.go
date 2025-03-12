@@ -1,7 +1,8 @@
-package abstractdatatype
+package linearadt
 
 import (
 	"fmt"
+	"gitub.com/StarGazer500/Data-Structures-and-Algorithm/nonlinearadt/trees/binarytrees/heap"
 )
 
 // Stack implementation
@@ -449,4 +450,20 @@ func (list *DoubleLinkedList[T]) Last() *DoubleLinkedListNode[T] {
 }
 func (list *DoubleLinkedList[T]) Size() int {
 	return list.numberItems
+}
+
+
+
+// Heap Priority Queue Implementation
+type HeapPriorityQueue[T Ordered] struct {
+    infoHeap heap.Heap[T]
+}
+// Methods
+func (queue *HeapPriorityQueue[T]) Push(item T) {
+    queue.infoHeap.Insert(item)
+}
+func (queue *HeapPriorityQueue[T]) Pop() T {
+    returnValue := queue.infoHeap.Largest()
+    queue.infoHeap.Remove()
+    return returnValue
 }

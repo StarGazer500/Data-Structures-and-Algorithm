@@ -1,4 +1,4 @@
-package abstractdatatype
+package linearadt
 
 import (
 	"fmt"
@@ -140,3 +140,21 @@ func SingleLinkedlist() {
 	fmt.Println("First car in the list is: ", cars.First().Item)
 	fmt.Println("Last car in the list is: ", cars.Items()[cars.Size()-1])
 }
+
+func TestHeapPriorityQueue(){
+	myQueue := HeapPriorityQueue[string]{}
+    myQueue.Push("Helen")
+    myQueue.Push("Apollo")
+    myQueue.Push("Richard")
+    myQueue.Push("Barbara")
+    fmt.Println(myQueue)
+    myQueue.Pop()
+    fmt.Println(myQueue)
+    myQueue.Push("Arlene")
+    fmt.Println(myQueue)
+    myQueue.Pop()
+    myQueue.Pop()
+    fmt.Println(myQueue)
+}
+
+
